@@ -1,0 +1,2 @@
+C:/Users/humoyun/StudioProjects/uy_ishi_17/android/app/.cxx/Debug/7340184q/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/humoyun/StudioProjects/uy_ishi_17/android/app/.cxx/Debug/7340184q/x86_64/CMakeFiles/rebuild_cache.dir

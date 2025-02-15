@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:uy_ishi_17/core/exceptions/auth_exception.dart';
 
 class ApiClient {
-  Dio dio = Dio(BaseOptions(baseUrl: "http://10.10.3.183:8888/api/v1"));
+  Dio dio = Dio(BaseOptions(
+      baseUrl: "http://192.168.0.106:8888/api/v1",
+      validateStatus: (status) => true));
 
   Future<dynamic> fetchMyProfile() async {
     var response = await dio.get('/auth/details/1');
@@ -34,11 +37,13 @@ class ApiClient {
       '/auth/login',
       data: {"login": login, "password": password},
     );
+
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);
       return data['accessToken']!;
     } else {
-      throw Exception("Login qilib bo'madi, xullas nimadur neto ketti");
+      throw AuthException(
+          message: "Login amalga oshirilmadi!");
     }
   }
 }
