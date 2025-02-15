@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:uy_ishi_17/core/app_colors.dart';
-
 import '../../../core/sizes.dart';
 
 class RecipePasswordFormField extends StatelessWidget {
@@ -10,11 +9,13 @@ class RecipePasswordFormField extends StatelessWidget {
     required this.controller,
     required this.title,
     required this.hintText,
+    required this.validator,
   });
 
   final TextEditingController controller;
   final String title;
   final String hintText;
+  final String? Function(String? value) validator;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class RecipePasswordFormField extends StatelessWidget {
           child: TextFormField(
             textAlignVertical: TextAlignVertical.center,
             controller: controller,
+            validator: validator,
             style: TextStyle(
               height: 1,
               color: AppColors.beigeColor,

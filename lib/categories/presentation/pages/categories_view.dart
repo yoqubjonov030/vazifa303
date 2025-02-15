@@ -22,12 +22,12 @@ class CategoriesView extends StatelessWidget {
           backgroundColor: AppColors.beigeColor,
           extendBody: true,
           appBar: AppBar(
-            //backgroundColor: AppColors.beigeColor,
+          backgroundColor: AppColors.beigeColor,
             leading: Center(child: SvgPicture.asset("assets/svg/arrow.svg")),
             title: Text(
               "Categories",
               style: TextStyle(
-                //color: AppColors.pinkSub,
+                color: AppColors.pinkSub,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -58,7 +58,7 @@ class CategoriesView extends StatelessWidget {
             ],
             centerTitle: true,
           ),
-          body: CategoriesPageBody(viewModel: viewModel),
+          body: CategoriesPageBody(viewModel: viewModel, category: viewModel.mainCategory!,),
           bottomNavigationBar: Align(
             alignment: Alignment.bottomCenter,
             child: Container(

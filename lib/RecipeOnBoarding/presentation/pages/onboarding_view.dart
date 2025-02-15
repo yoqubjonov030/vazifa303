@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uy_ishi_17/core/app_colors.dart';
 import 'onboarding_view_model.dart';
-import 'onboarding_view_v2.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key, required this.ovm});
@@ -118,11 +118,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 child: GestureDetector(
                   onTap: () {
                     if (_pageController.page == widget.ovm.pages.length - 1) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => OnBoardingViewV2()),
-                      );
+                      context.go('/login');
                     } else {
                       _pageController.nextPage(
                         duration: Duration(milliseconds: 300),
@@ -149,7 +145,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),
@@ -157,7 +153,3 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 }
-
-
-
-

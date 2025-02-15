@@ -21,7 +21,7 @@ class ProfileRecipeModel {
       title: json['title'],
       description: json['description'],
       image: json['photo'],
-      videoRecipe: json['videoRecipe'] ?? "placeholder",
+      videoRecipe: json['videoRecipe'] ,
       timeRequired: json['timeRequired'],
       rating: json['rating'],
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart'; // GoRouter import
+import 'package:go_router/go_router.dart';
 import 'package:uy_ishi_17/auth/presentation/manager/login_view_model.dart';
 import 'package:uy_ishi_17/auth/presentation/widgets/recipe_password_form_field.dart';
 import 'package:uy_ishi_17/auth/presentation/widgets/recipe_text_form_field.dart';
@@ -27,6 +27,30 @@ class LoginView extends StatelessWidget {
             ),
           ),
           centerTitle: true,
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                "uz",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                "en",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
         ),
         body: ListView(
           padding: EdgeInsets.only(top: 150),
@@ -49,6 +73,7 @@ class LoginView extends StatelessWidget {
                       controller: vm.passwordController,
                       title: "password",
                       hintText: "********",
+                      validator: (value) => null,
                     )
                   ],
                 ),
@@ -62,7 +87,7 @@ class LoginView extends StatelessWidget {
                 onTap: () async {
                   if (vm.formKey.currentState!.validate()) {
                     if (await vm.login() && context.mounted) {
-                      context.go('/auth_informations');
+                      context.go('/categories');
                     } else {}
                   }
                 },
@@ -90,23 +115,28 @@ class LoginView extends StatelessWidget {
               height: 27,
             ),
             Center(
-              child: Container(
-                width: 207,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Color(0xFFFFC6C9),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Center(
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: AppColors.pinkSub,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+              child: GestureDetector(
+                child: Container(
+                  width: 207,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFC6C9),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        color: AppColors.pinkSub,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
+                onTap: () {
+                  context.go("/auth_informations");
+                },
               ),
             ),
           ],
